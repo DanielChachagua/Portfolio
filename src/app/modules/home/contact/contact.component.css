@@ -1,0 +1,198 @@
+.contact-container {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: var(--muted-foreground);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-form-card, .info-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.info-card {
+  margin-bottom: 24px;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.card-header {
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 8px;
+}
+
+.card-description {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.card-content {
+  padding: 16px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 4px;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--foreground);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  &.input-error {
+    border-color: #f44336;
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px 16px;
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  border-radius: 4px;
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .icon {
+    color: var(--primary);
+    font-size: 20px;
+  }
+}
+
+.contact-title {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Fira Code', monospace;
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-size: 14px;
+  color: var(--muted-foreground);
+}
+
+.hours-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hours-item {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.hours-day {
+  font-family: 'Fira Code', monospace;
+}
+
+.hours-time {
+  color: var(--muted-foreground);
+}
+
+.icon-send::before { content: '↗'; }
+.icon-mail::before { content: '✉'; }
+.icon-phone::before { content: '📞'; }
+.icon-map::before { content: '📍'; }

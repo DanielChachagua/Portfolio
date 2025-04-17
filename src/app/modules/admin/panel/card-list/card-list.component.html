@@ -1,0 +1,16 @@
+<div class="bg-black bg-opacity-90 text-white flex flex-col p-2 gap-2 rounded-lg max-w-full h-auto max-h-full example-box" cdkDrag>
+    <div class="flex flex-row justify-between h-[8%] min-h-10 items-center">
+        <h3 class="text-lg font-semibold max-w-9/12 text-ellipsis text-nowrap overflow-hidden">{{listBoard.name}}</h3>
+        <img src="assets/images/move-blanco.png" alt="" class="w-8 h-8 p-1 rounded-full hover:cursor-move hover:bg-gray-500" cdkDragHandle/>
+    </div>
+    <div class="bg-white bg-opacity-60 h-auto max-h-[84%] overflow-y-auto scroll-bar-vertical p-2"
+        cdkDropList [cdkDropListData]="listBoard.cards || []" 
+        [cdkDropListConnectedTo]="connectedDropLists"
+        [id]="listBoard.id"
+        (cdkDropListDropped)="dropCard($event)">
+            <app-card-card *ngFor="let card of listBoard.cards" [card]="card" cdkDrag></app-card-card>
+    </div>
+    <div class="h-[8%] w-full flex justify-center items-center">
+        <button class="bg-black p-2 rounded-lg w-full min-h-8" (click)="createCard()">+ Agregar Tarjeta</button>
+    </div>
+</div>

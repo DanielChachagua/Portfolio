@@ -1,0 +1,99 @@
+<div class="properties-panel" [class.panel-left]="side === 'left'" [class.panel-right]="side === 'right'" [class.mobile]="isMobile">
+  <div class="panel-header">
+    <h3>PROPERTIES</h3>
+  </div>
+  
+  <div class="panel-content">
+    <!-- DISPLAY -->
+    <div class="properties-section">
+      <h4>DISPLAY</h4>
+      <div class="properties-grid">
+        <div class="property-row">
+          <label for="show-grid">Show Grid</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="show-grid"  [(ngModel)]="showGrid">
+            <span class="slider"></span>
+          </div>
+        </div>
+        
+        <div class="property-row">
+          <label for="snap-to-grid">Snap to Grid</label>
+          <div class="toggle-switch">
+            <input type="checkbox" id="snap-to-grid" [(ngModel)]="snapToGrid">
+            <span class="slider"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <!-- LAYOUT -->
+    <div class="properties-section">
+      <h4>LAYOUT</h4>
+      <div class="properties-grid">
+        <div class="property-item">
+          <label for="width">Width</label>
+          <div class="slider-container">
+            <input type="range" id="width" [(ngModel)]="width" min="0" max="100" step="1" class="range-slider">
+            <span class="slider-value">{{width}}%</span>
+          </div>
+        </div>
+        
+        <div class="property-item">
+          <label for="height">Height</label>
+          <div class="slider-container">
+            <input type="range" id="height" [(ngModel)]="height" min="0" max="100" step="1" class="range-slider">
+            <span class="slider-value">{{height}}%</span>
+          </div>
+        </div>
+        
+        <div class="property-grid-2">
+          <div class="property-item">
+            <label for="padding">Padding</label>
+            <input type="text" id="padding" [(ngModel)]="padding" class="text-input">
+          </div>
+          
+          <div class="property-item">
+            <label for="margin">Margin</label>
+            <input type="text" id="margin" [(ngModel)]="margin" class="text-input">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <!-- APPEARANCE -->
+    <div class="properties-section">
+      <h4>APPEARANCE</h4>
+      <div class="properties-grid">
+        <div class="property-item">
+          <label for="theme">Theme</label>
+          <select id="theme" [(ngModel)]="theme" class="select-input">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="system">System</option>
+          </select>
+        </div>
+        
+        <div class="property-item">
+          <label for="font">Font</label>
+          <select id="font" [(ngModel)]="font" class="select-input">
+            <option value="mono">Monospace</option>
+            <option value="sans">Sans Serif</option>
+            <option value="serif">Serif</option>
+          </select>
+        </div>
+        
+        <div class="property-item">
+          <label for="color">Accent Color</label>
+          <div class="color-input-container">
+            <div class="color-preview" [style.background-color]="color"></div>
+            <input type="text" id="color" [(ngModel)]="color" class="text-input">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

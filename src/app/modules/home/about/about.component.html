@@ -1,0 +1,125 @@
+<div class="about-container">
+  <div class="section-header">
+    <h1 class="title">About Me</h1>
+    <p class="subtitle">Learn more about my background, skills, and experience.</p>
+  </div>
+
+  <div class="tabs">
+    <div class="tab-list">
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'profile'"
+        (click)="setActiveTab('profile')"
+      >
+        <i class="icon icon-user"></i> Profile
+      </button>
+      
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'skills'"
+        (click)="setActiveTab('skills')"
+      >
+        <i class="icon icon-code"></i> Skills
+      </button>
+      
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'experience'"
+        (click)="setActiveTab('experience')"
+      >
+        <i class="icon icon-briefcase"></i> Experience
+      </button>
+      
+      <button 
+        class="tab-button" 
+        [class.active]="activeTab === 'education'"
+        (click)="setActiveTab('education')"
+      >
+        <i class="icon icon-graduation"></i> Education
+      </button>
+    </div>
+
+    <div class="tab-content">
+      <!-- Profile Tab -->
+      <div class="tab-panel" *ngIf="activeTab === 'profile'">
+        <div class="card">
+          <h2 class="card-title">Profile</h2>
+          <div class="card-content">
+            <p>
+              I'm a passionate full-stack developer with over 5 years of experience building web applications. I
+              specialize in creating responsive, accessible, and performant user interfaces using modern technologies
+              like Angular, React, and TypeScript.
+            </p>
+            <p>
+              My approach to development focuses on creating clean, maintainable code that delivers exceptional user
+              experiences. I'm constantly learning and exploring new technologies to stay at the forefront of web
+              development.
+            </p>
+            <p>
+              When I'm not coding, you can find me hiking, reading tech blogs, or contributing to open-source
+              projects. I'm always open to new opportunities and collaborations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Tab -->
+      <div class="tab-panel" *ngIf="activeTab === 'skills'">
+        <div class="card">
+          <h2 class="card-title">Skills</h2>
+          <div class="card-content">
+            <div class="skills-list">
+              <div class="skill-item" *ngFor="let skill of skills">
+                <div class="skill-header">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-level">{{ skill.level }}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" [style.width.%]="skill.level"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Experience Tab -->
+      <div class="tab-panel" *ngIf="activeTab === 'experience'">
+        <div class="card">
+          <h2 class="card-title">Experience</h2>
+          <div class="card-content">
+            <div class="timeline">
+              <div class="timeline-item" *ngFor="let exp of experiences">
+                <h3 class="timeline-title">{{ exp.title }}</h3>
+                <div class="timeline-meta">
+                  <span class="timeline-company">{{ exp.company }}</span>
+                  <span class="timeline-period">{{ exp.period }}</span>
+                </div>
+                <p class="timeline-description">{{ exp.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Education Tab -->
+      <div class="tab-panel" *ngIf="activeTab === 'education'">
+        <div class="card">
+          <h2 class="card-title">Education</h2>
+          <div class="card-content">
+            <div class="timeline">
+              <div class="timeline-item" *ngFor="let edu of education">
+                <h3 class="timeline-title">{{ edu.degree }}</h3>
+                <div class="timeline-meta">
+                  <span class="timeline-company">{{ edu.institution }}</span>
+                  <span class="timeline-period">{{ edu.period }}</span>
+                </div>
+                <p class="timeline-description">{{ edu.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

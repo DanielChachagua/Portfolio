@@ -1,0 +1,40 @@
+<div class="studio-container">
+  <app-header
+    [activeSection]="activeSection"
+    (sectionChange)="handleSectionChange($event)"
+    (toggleLeftSidebar)="toggleLeftSidebar()"
+    (toggleRightSidebar)="toggleRightSidebar()"
+    [leftSidebarOpen]="leftSidebarOpen"
+    [rightSidebarOpen]="rightSidebarOpen"
+  ></app-header>
+
+  <!-- Contenido principal con sidebars -->
+  <div class="main-content">
+    <!-- Sidebar izquierdo - Navegación -->
+    <app-sidebar
+      *ngIf="leftSidebarOpen"
+      [activeSection]="activeSection"
+      (sectionChange)="handleSectionChange($event)"
+      side="left"
+      [isMobile]="isMobile"
+    ></app-sidebar>
+
+    <!-- Contenido principal -->
+    <app-content
+      [activeSection]="activeSection"
+      [leftSidebarOpen]="leftSidebarOpen"
+      [rightSidebarOpen]="rightSidebarOpen"
+    ></app-content>
+
+    <!-- Sidebar derecho - Propiedades -->
+    <app-properties
+      *ngIf="rightSidebarOpen"
+      [activeSection]="activeSection"
+      side="right"
+      [isMobile]="isMobile"
+    ></app-properties>
+  </div>
+
+  <!-- Barra de estado -->
+  <app-footer [activeSection]="activeSection"></app-footer>
+</div>

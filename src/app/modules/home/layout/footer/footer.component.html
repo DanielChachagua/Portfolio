@@ -1,0 +1,20 @@
+<div class="status-bar">
+  <div class="status-items">
+    <div class="status-item">
+      <span class="status-label">SECTION:</span>
+      <span class="status-value">{{ activeSection | uppercase }}</span>
+    </div>
+    
+    <div class="status-item">
+      <span class="status-label">THEME:</span>
+      <span class="status-value">{{ currentTheme | uppercase }}</span>
+    </div>
+    
+    <div class="status-item">
+      <span class="status-label">STATUS:</span>
+      <span class="status-value status-ready">READY</span>
+    </div>
+  </div>
+  
+  <div class="status-time">{{ currentTime }}</div>
+</div>

@@ -1,0 +1,43 @@
+<header class="sticky top-0 left-0 flex flex-row w-full h-16 justify-between items-center bg-gray-950 px-2 text-white z-10">
+    <div class="w-full h-16 flex flex-row items-center justify-start">
+        <div class="w-auto h-16 flex flex-row items-center hover:cursor-pointer" [routerLink]="['/dashboard']">
+            <img src="assets/images/icon-50.png" alt="" class="w-12 h-12 mr-3" />
+            <p class="text-nowrap font-bold text-xl">
+                Think Tank
+            </p>
+        </div>
+        <div class="w-full ml-8 h-16 flex flex-row items-center cursor-pointer">
+            <a class="w-36 h-16 flex items-center justify-center text-xl font-medium hover:bg-gray-400 hover:text-gray-900" [routerLink]="['/dashboard']">Boards</a>
+            <a class="w-36 h-16 flex items-center justify-center text-xl font-medium hover:bg-gray-400 hover:text-gray-900" [routerLink]="['/dashboard/boards']">Mis tableros</a>
+            <a class="w-36 h-16 flex items-center justify-center text-xl font-medium hover:bg-gray-400 hover:text-gray-900" [routerLink]="['/dashboard/favorites']">Favoritos</a>
+            <button class="w-auto py-2 px-8 bg-gray-500 font-medium ml-8 rounded-lg hover:bg-gray-400">Crear</button>
+        </div>
+    </div>
+    <div *ngIf="user$ | async as user" class="flex flex-row w-auto justify-center items-center">
+        <!-- <div *ngIf="user.email" class="p-2 rounded-3xl w-12 h-12 bg-blue-900 flex justify-center items-center text-xl hover:cursor-pointer hover:bg-blue-500">
+            <span>AB</span>
+        </div>
+
+        <div>
+            <a href="">inicio</a>
+            <a href="">medio</a>
+            <a href="">fin</a>
+        </div> -->
+        <!-- <a href="" class="px-4 py-2 hover:bg-gray-700" (click)="logout()">Cerrar Sesión</a> -->
+        <div class="dropdown-perfil">
+            <!-- Botón del dropdown -->
+            <div (click)="toggleDropdown()"
+                class="p-2 rounded-full w-12 h-12 bg-blue-900 flex justify-center items-center text-xl hover:cursor-pointer hover:bg-blue-500">
+                <span>{{ getInitials() | async }}</span>
+            </div>
+
+            <!-- Contenido del dropdown -->
+            <div *ngIf="isDropdownOpen"
+                class="absolute right-0 mt-2 w-48 bg-gray-800 text-white shadow-lg flex flex-col !z-[9999]">
+                <a href="" class="px-4 py-2 hover:bg-gray-700">inicio</a>
+                <a href="" class="px-4 py-2 hover:bg-gray-700">medio</a>
+                <a href="" class="px-4 py-2 hover:bg-gray-700" (click)="logout()">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+</header>

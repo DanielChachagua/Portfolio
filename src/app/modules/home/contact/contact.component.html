@@ -1,0 +1,126 @@
+<div class="contact-container">
+  <div class="section-header">
+    <h1 class="title">Contact Me</h1>
+    <p class="subtitle">Get in touch for collaborations, job opportunities, or just to say hello.</p>
+  </div>
+
+  <div class="contact-grid">
+    <!-- Formulario de contacto -->
+    <div class="contact-form-card">
+      <div class="card-header">
+        <h2 class="card-title">Send a Message</h2>
+        <p class="card-description">Fill out the form below and I'll get back to you as soon as possible.</p>
+      </div>
+      
+      <div class="card-content">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name" class="form-label">Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                formControlName="name" 
+                class="form-input" 
+                [class.input-error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                placeholder="Your name"
+              >
+              <div class="error-message" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                Name is required
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                formControlName="email" 
+                class="form-input"
+                [class.input-error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                placeholder="Your email"
+              >
+              <div class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                Valid email is required
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="subject" class="form-label">Subject</label>
+            <input 
+              type="text" 
+              id="subject" 
+              formControlName="subject" 
+              class="form-input"
+              [class.input-error]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"
+              placeholder="Message subject"
+            >
+            <div class="error-message" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+              Subject is required
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Message</label>
+            <textarea 
+              id="message" 
+              formControlName="message" 
+              class="form-textarea"
+              [class.input-error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
+              placeholder="Your message"
+              rows="5"
+            ></textarea>
+            <div class="error-message" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
+              Message is required
+            </div>
+          </div>
+          
+          <button type="submit" class="submit-button">
+            <i class="icon icon-send"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Información de contacto -->
+    <div class="contact-info">
+      <div class="info-card">
+        <div class="card-header">
+          <h2 class="card-title">Contact Information</h2>
+          <p class="card-description">Here's how you can reach me directly.</p>
+        </div>
+        
+        <div class="card-content">
+          <div class="contact-items">
+            <div class="contact-item" *ngFor="let item of contactInfo">
+              <div class="contact-icon">
+                <i class="icon" [ngClass]="item.icon"></i>
+              </div>
+              <div class="contact-details">
+                <h3 class="contact-title">{{ item.title }}</h3>
+                <p class="contact-value">{{ item.value }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="card-header">
+          <h2 class="card-title">Office Hours</h2>
+          <p class="card-description">When I'm typically available for meetings.</p>
+        </div>
+        
+        <div class="card-content">
+          <div class="hours-list">
+            <div class="hours-item" *ngFor="let item of officeHours">
+              <span class="hours-day">{{ item.day }}</span>
+              <span class="hours-time">{{ item.hours }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

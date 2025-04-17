@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  height: 100vh;
+  font-family: 'Fira Code', monospace;
+}
+
+.studio-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+:host.dark-theme {
+  --background: #1e1e1e;
+  --foreground: #e0e0e0;
+  --primary: #0078d4;
+  --primary-foreground: #ffffff;
+  --accent: #3a3a3a;
+  --accent-foreground: #e0e0e0;
+  --border: #444444;
+  --card: #252525;
+  --card-foreground: #e0e0e0;
+  --muted: #505050;
+  --muted-foreground: #a0a0a0;
+}
+
+:host:not(.dark-theme) {
+  --background: #f9f9f9;
+  --foreground: #1a1a1a;
+  --primary: #0078d4;
+  --primary-foreground: #ffffff;
+  --accent: #f0f0f0;
+  --accent-foreground: #1a1a1a;
+  --border: #e0e0e0;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --muted: #f0f0f0;
+  --muted-foreground: #6e6e6e;
+}

@@ -1,0 +1,109 @@
+<div class="sidebar" [class.sidebar-left]="side === 'left'" [class.sidebar-right]="side === 'right'" [class.mobile]="isMobile">
+  <div class="sidebar-content">
+    <!-- Sección de navegación -->
+    <div class="sidebar-section">
+      <button class="section-header" (click)="toggleSection('navigation')">
+        <span>NAVIGATION</span>
+        <i class="icon" [ngClass]="openSections['navigation'] ? 'icon-chevron-down' : 'icon-chevron-right'"></i>
+      </button>
+      
+      <div class="section-content" *ngIf="openSections['navigation']">
+        <button 
+          class="nav-item" 
+          [class.active]="activeSection === 'home'"
+          (click)="onSectionClick('home')"
+        >
+          <i class="icon icon-home"></i>
+          <span>Home</span>
+        </button>
+        
+        <button 
+          class="nav-item" 
+          [class.active]="activeSection === 'about'"
+          (click)="onSectionClick('about')"
+        >
+          <i class="icon icon-user"></i>
+          <span>About</span>
+        </button>
+        
+        <button 
+          class="nav-item" 
+          [class.active]="activeSection === 'projects'"
+          (click)="onSectionClick('projects')"
+        >
+          <i class="icon icon-code"></i>
+          <span>Projects</span>
+        </button>
+        
+        <button 
+          class="nav-item" 
+          [class.active]="activeSection === 'contact'"
+          (click)="onSectionClick('contact')"
+        >
+          <i class="icon icon-mail"></i>
+          <span>Contact</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sección de proyectos -->
+    <div class="sidebar-section">
+      <button class="section-header" (click)="toggleSection('projects')">
+        <span>PROJECTS</span>
+        <i class="icon" [ngClass]="openSections['projects'] ? 'icon-chevron-down' : 'icon-chevron-right'"></i>
+      </button>
+      
+      <div class="section-content" *ngIf="openSections['projects']">
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>E-commerce Platform</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>Portfolio Website</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>Task Management App</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>API RESTful</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Sección de componentes -->
+    <div class="sidebar-section">
+      <button class="section-header" (click)="toggleSection('components')">
+        <span>COMPONENTS</span>
+        <i class="icon" [ngClass]="openSections['components'] ? 'icon-chevron-down' : 'icon-chevron-right'"></i>
+      </button>
+      
+      <div class="section-content" *ngIf="openSections['components']">
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Header</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Sidebar</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Content</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Footer</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

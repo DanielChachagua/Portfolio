@@ -1,0 +1,30 @@
+<div class="projects-container">
+  <div class="section-header">
+    <h1 class="title">Projects</h1>
+    <p class="subtitle">A collection of my recent work and personal projects.</p>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let project of projects">
+      <div class="card-header">
+        <h2 class="card-title">{{ project.title }}</h2>
+        <p class="card-description">{{ project.description }}</p>
+      </div>
+      
+      <div class="card-content">
+        <div class="tags">
+          <span class="tag" *ngFor="let tag of project.tags">{{ tag }}</span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <a [href]="project.repoUrl" class="button button-outline" target="_blank">
+          <i class="icon icon-github"></i> Code
+        </a>
+        <a [href]="project.demoUrl" class="button button-primary" target="_blank">
+          <i class="icon icon-external-link"></i> Demo
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
