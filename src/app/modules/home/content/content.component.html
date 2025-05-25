@@ -1,8 +1,5 @@
 <div class="content-area">
   <div class="content-scroll">
-    <app-initial *ngIf="activeSection === 'home'"></app-initial>
-    <app-about *ngIf="activeSection === 'about'"></app-about>
-    <app-project *ngIf="activeSection === 'projects'"></app-project>
-    <app-contact *ngIf="activeSection === 'contact'"></app-contact>
+    <router-outlet></router-outlet>
   </div>
 </div>

@@ -1,10 +1,15 @@
 .content-area {
+  display: flex;
   flex: 1;
   overflow: hidden;
   background-color: var(--accent);
+  min-width: 100% !important;
 }
 
 .content-scroll {
-  height: 100%;
+  display: flex;
+  flex: 1;
+  min-width: 100% !important;
+  height: calc(100vh - 48px); /* 48px is the height of the header */;
   overflow-y: auto;
 }

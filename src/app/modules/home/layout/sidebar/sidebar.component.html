@@ -1,17 +1,19 @@
-<div class="sidebar" [class.sidebar-left]="side === 'left'" [class.sidebar-right]="side === 'right'" [class.mobile]="isMobile">
-  <div class="sidebar-content">
-    <!-- Sección de navegación -->
+<!-- <div class="fixed top-[48px] left-0 h-full w-64 border-r bg-background/95 backdrop-blur z-40 hidden md:block" [class.sidebar-left]="side === 'left'" [class.sidebar-right]="side === 'right'" [class.mobile]="isMobile">
+  <div class="flex flex-col h-full p-6">
     <div class="sidebar-section">
-      <button class="section-header" (click)="toggleSection('navigation')">
-        <span>NAVIGATION</span>
-        <i class="icon" [ngClass]="openSections['navigation'] ? 'icon-chevron-down' : 'icon-chevron-right'"></i>
-      </button>
+      <div className="mb-8">
+        <h1 className="text-2xl font-bold">Mi Portafolio</h1>
+        <p className="text-sm text-muted-foreground mt-1">Desarrollador Web</p>
+      </div>
+
+      <hr class="my-2">
       
-      <div class="section-content" *ngIf="openSections['navigation']">
+      <div class="space-y-1 flex-1" *ngIf="openSections['navigation']">
         <button 
-          class="nav-item" 
+          class="flex items-center gap-3 px-3 py-2 rounded-md text-sm transition-colors" 
           [class.active]="activeSection === 'home'"
           (click)="onSectionClick('home')"
+          routerLink="home"
         >
           <i class="icon icon-home"></i>
           <span>Home</span>
@@ -21,6 +23,7 @@
           class="nav-item" 
           [class.active]="activeSection === 'about'"
           (click)="onSectionClick('about')"
+          routerLink="about"
         >
           <i class="icon icon-user"></i>
           <span>About</span>
@@ -30,6 +33,7 @@
           class="nav-item" 
           [class.active]="activeSection === 'projects'"
           (click)="onSectionClick('projects')"
+          routerLink="projects"
         >
           <i class="icon icon-code"></i>
           <span>Projects</span>
@@ -39,6 +43,7 @@
           class="nav-item" 
           [class.active]="activeSection === 'contact'"
           (click)="onSectionClick('contact')"
+          routerLink="contact"
         >
           <i class="icon icon-mail"></i>
           <span>Contact</span>
@@ -46,7 +51,6 @@
       </div>
     </div>
 
-    <!-- Sección de proyectos -->
     <div class="sidebar-section">
       <button class="section-header" (click)="toggleSection('projects')">
         <span>PROJECTS</span>
@@ -76,7 +80,6 @@
       </div>
     </div>
 
-    <!-- Sección de componentes -->
     <div class="sidebar-section">
       <button class="section-header" (click)="toggleSection('components')">
         <span>COMPONENTS</span>
@@ -105,5 +108,124 @@
         </button>
       </div>
     </div>
+  </div>
+</div> -->
+
+
+
+<!-- <div class="top-[48px] left-0 h-full w-80 border-r bg-background/95 backdrop-blur z-40 hidden md:block" [class.sidebar-left]="side === 'left'" [class.sidebar-right]="side === 'right'" [class.mobile]="isMobile" [class.sidebar-left]="side === 'left'" [class.sidebar-right]="side === 'right'" [class.mobile]="isMobile"> -->
+<div [ngClass]="leftSidebarOpen ? 'sidebar' : 'sidebarClose'" [class.sidebar-left]="side === 'left'" [class.sidebar-right]="side === 'right'" [class.mobile]="isMobile">  
+  <div class="flex-1 overflow-y-auto p-3">
+    <div class="sidebar-section">
+
+      <h2 class="text-2xl flex items-center font-bold" [ngClass]="leftSidebarOpen ? 'justify-between' : 'justify-center'">
+        <span *ngIf="leftSidebarOpen">PORTFOLIO</span>
+        <div class="w-10 h-10 flex justify-center items-center rounded-3xl hover:bg-[var(--accent)]" (click)="onToggleLeftSidebar()">
+          <i [ngClass]="!leftSidebarOpen ? 'fas fa-chevron-right' : 'fas fa-chevron-left'"></i>
+        </div>
+      </h2>
+
+      <hr class="my-6">
+
+      <div class="mt-1 flex flex-col gap-4" *ngIf="openSections['navigation']">
+        <button
+          class="flex h-12 items-center py-1.5 px-2 gap-3 pl-4 bg-transparent border-none rounded-1 text-[var(--foreground)] font-['Fira Code'. monospace] text-left cursor-pointer hover:bg-[var(--accent)]" 
+          [class.active]="activeSection === 'home'"
+          (click)="onSectionClick('home')"
+          routerLink="home"
+        >
+          <i class="fa-solid fa-house"></i>
+          <span *ngIf="leftSidebarOpen">Home</span>
+        </button>
+
+        <button 
+          class="flex h-12 items-center py-1.5 px-2 pl-4 gap-3 bg-transparent border-none rounded-1 text-[var(--foreground)] font-['Fira Code'. monospace] text-left cursor-pointer hover:bg-[var(--accent)]" 
+          [class.active]="activeSection === 'about'"
+          (click)="onSectionClick('about')"
+          routerLink="about"
+        >
+          <i class="fa-solid fa-user"></i>
+          <span *ngIf="leftSidebarOpen">About</span>
+        </button>
+        
+        <button 
+          class="flex h-12 items-center py-1.5 px-2 pl-4 gap-3 bg-transparent border-none rounded-1 text-[var(--foreground)] font-['Fira Code'. monospace] text-left cursor-pointer hover:bg-[var(--accent)]" 
+          [class.active]="activeSection === 'projects'"
+          (click)="onSectionClick('projects')"
+          routerLink="projects"
+        >
+          <i class="fa-solid fa-code"></i>
+          <span *ngIf="leftSidebarOpen">Projects</span>
+        </button>
+        
+        <button 
+          class="flex h-12 items-center py-1.5 px-2 pl-4 gap-3 bg-transparent border-none rounded-1 text-[var(--foreground)] font-['Fira Code'. monospace] text-left cursor-pointer hover:bg-[var(--accent)]" 
+          [class.active]="activeSection === 'contact'"
+          (click)="onSectionClick('contact')"
+          routerLink="contact"
+        >
+          <i class="fa-solid fa-envelope"></i>
+          <span *ngIf="leftSidebarOpen">Contact</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- <div class="sidebar-section">
+      <button class="section-header" (click)="toggleSection('projects')">
+        <span>PROJECTS</span>
+        <i class="icon" [ngClass]="openSections['projects'] ? 'icon-chevron-down' : 'icon-chevron-right'"></i>
+      </button>
+      
+      <div class="section-content" *ngIf="openSections['projects']">
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>E-commerce Platform</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>Portfolio Website</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>Task Management App</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-file"></i>
+          <span>API RESTful</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <button class="section-header" (click)="toggleSection('components')">
+        <span>COMPONENTS</span>
+        <i class="icon" [ngClass]="openSections['components'] ? 'icon-chevron-down' : 'icon-chevron-right'"></i>
+      </button>
+      
+      <div class="section-content" *ngIf="openSections['components']">
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Header</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Sidebar</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Content</span>
+        </button>
+        
+        <button class="nav-item">
+          <i class="icon icon-info"></i>
+          <span>Footer</span>
+        </button>
+      </div> 
+    </div> -->
   </div>
 </div>

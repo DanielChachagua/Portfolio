@@ -2,18 +2,18 @@
   <app-header
     [activeSection]="activeSection"
     (sectionChange)="handleSectionChange($event)"
-    (toggleLeftSidebar)="toggleLeftSidebar()"
     (toggleRightSidebar)="toggleRightSidebar()"
-    [leftSidebarOpen]="leftSidebarOpen"
     [rightSidebarOpen]="rightSidebarOpen"
   ></app-header>
 
   <!-- Contenido principal con sidebars -->
   <div class="main-content">
     <!-- Sidebar izquierdo - Navegación -->
+    <!-- *ngIf="leftSidebarOpen" -->
     <app-sidebar
-      *ngIf="leftSidebarOpen"
       [activeSection]="activeSection"
+      (toggleLeftSidebar)="toggleLeftSidebar()"
+      [leftSidebarOpen]="leftSidebarOpen"
       (sectionChange)="handleSectionChange($event)"
       side="left"
       [isMobile]="isMobile"

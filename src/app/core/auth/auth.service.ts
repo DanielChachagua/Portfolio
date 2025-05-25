@@ -21,13 +21,14 @@ export class AuthService {
   //   return this.httpClient.post(environment.apiUrl+'User/Login', login_model);
   auth(email: string, password: string): Observable<HttpResponse<any>> {
     let login_model: { email: string, password: string } = { email: email, password: password };
-    return this.httpClient.post(environment.apiUrl + 'User/Login', login_model
+    return this.httpClient.post(environment.apiUrl + 'auth/login', login_model
       , {
         observe: 'response'
       }).pipe(
         tap((response) => {
           console.log(response);
-          const token = response.headers.get('x-access-token');
+          // const token = response.headers.get('x-access-token');
+          const token = response.body.body;
           this.userService.saveToken(token ?? '');
           // this.userService.saveToken(body.token);
         })

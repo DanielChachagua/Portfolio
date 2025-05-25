@@ -1,5 +1,46 @@
-<section class="">
-    <div>
-        <app-board-form></app-board-form>
+<section class="flex bg-gray-500 h-[calc(100vh-64px)]">
+    <div class="projects-container">
+  <div class="flex gap-5 items-center justify-between mb-5">
+    <h1 class="title">Projects</h1>
+    <button (click)="createProject()" class="h-12 w-32 bg-blue-800 text-white cursor-pointer">Crear</button>
+  </div>
+
+  <div class="projects-grid">
+    <div class="project-card" *ngFor="let project of projects">
+      <div class="card-header">
+        <h2 class="card-title">{{ project.title }}</h2>
+        <p class="card-description">{{ project.description }}</p>
+      </div>
+      
+      <div class="card-content">
+        <div class="tags">
+          <span class="tag">cash</span>
+        </div>
+      </div>
+      
+      <div class="card-footer">
+        <a [href]="" class="button button-outline" target="_blank">
+          <i class="icon icon-github"></i> Code
+        </a>
+        <a [href]="" class="button button-primary" target="_blank">
+          <i class="icon icon-external-link"></i> Demo
+        </a>
+      </div>
+      <div class="flex h-8 mb-5 gap-5 mx-5">
+        <button
+        (click)="deleteProject(project.id)"
+          class="flex justify-center rounded-full w-12 h-12 items-center bg-transparent border-none text-[var(--foreground)] font-['Fira Code'. monospace] text-left cursor-pointer hover:bg-[var(--accent)]" 
+        >
+          <i class="fa-solid fa-trash"></i>
+        </button>
+        <button
+        (click)="updateProject(project)"
+          class="flex rounded-full h-12 items-center py-1.5 px-2 gap-3 pl-4 bg-transparent border-none rounded-1 text-[var(--foreground)] font-['Fira Code'. monospace] text-left cursor-pointer hover:bg-[var(--accent)]" 
+        >
+          <i class="fa-solid fa-pen"></i>
+        </button>
+      </div>
     </div>
+  </div>
+</div>
 </section>

@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Register } from '../../models/user/register';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
 import { TokenService } from '../../auth/token/token.service';
@@ -11,18 +10,16 @@ import { UserToken } from '../../models/user/userToken';
   providedIn: 'root'
 })
 export class UserService {
-  url: string = `${environment.apiUrl}User`
+  url: string = `${environment.apiUrl}user`
 
-  private userSubject = new BehaviorSubject<UserToken>({});
+  // private userSubject = new BehaviorSubject<UserToken>({});
+  private userSubject = new BehaviorSubject<UserToken | null>(null);
+  public user$ = this.userSubject.asObservable();
 
   constructor(private httpClient: HttpClient, private tokenService: TokenService) { 
     if(this.tokenService.existToken()){
       this.decodingJWT();
     }
-  }
-
-  registerUser(user: Register): Observable<any>{
-    return this.httpClient.post(`${this.url}/register`, user);
   }
 
   validUserName(userName: string): Observable<any>{
@@ -36,11 +33,12 @@ export class UserService {
   private decodingJWT(){
     const token = this.tokenService.getToken();
     const decode = jwtDecode(token!) as any;
+    console.log("🚀 ~ UserService ~ decodingJWT ~ decode:", decode)
     let user: UserToken = {
       id: decode.Id,
-      email: decode.Email,
-      firstName: decode.FirstName,
-      lastName: decode.LastName
+      // email: decode.Email,
+      // firstName: decode.FirstName,
+      // lastName: decode.LastName
     }
     this.userSubject.next(user);
   }
@@ -56,7 +54,7 @@ export class UserService {
 
   deleteToken(){
     this.tokenService.deleteToken();
-    this.userSubject.next({});
+    this.userSubject.next(null);
   }
 
   isLogin(){

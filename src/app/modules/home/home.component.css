@@ -1,13 +1,22 @@
 :host {
   display: block;
   height: 100vh;
+  min-width: 100vw;
   font-family: 'Fira Code', monospace;
 }
 
 .studio-container {
   display: flex;
   flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.studio-container {
+  display: flex;
+  flex-direction: column;
   height: 100%;
+  min-width: 100vw;
   background-color: var(--background);
   color: var(--foreground);
 }
@@ -22,6 +31,7 @@
   --background: #1e1e1e;
   --foreground: #e0e0e0;
   --primary: #0078d4;
+  /* --primary: #9ca669; */
   --primary-foreground: #ffffff;
   --accent: #3a3a3a;
   --accent-foreground: #e0e0e0;
@@ -36,6 +46,7 @@
   --background: #f9f9f9;
   --foreground: #1a1a1a;
   --primary: #0078d4;
+  /* --primary: #9ca669; */
   --primary-foreground: #ffffff;
   --accent: #f0f0f0;
   --accent-foreground: #1a1a1a;
@@ -45,3 +56,4 @@
   --muted: #f0f0f0;
   --muted-foreground: #6e6e6e;
 }
+

@@ -1,15 +1,12 @@
 <header class="studio-header">
     <div class="left-controls">
-      <button class="icon-button" (click)="onToggleLeftSidebar()" aria-label="Toggle left sidebar">
-        <i class="icon" [ngClass]="leftSidebarOpen ? 'icon-x' : 'icon-panel-left'"></i>
-      </button>
-  
       <div class="tabs">
         <button 
           *ngFor="let section of sections" 
           class="tab" 
           [class.active]="activeSection === section"
           (click)="onSectionChange(section)"
+          routerLink="{{section}}"
         >
           {{ section | titlecase }}
         </button>
@@ -20,12 +17,12 @@
       <app-theme-toggle></app-theme-toggle>
       
       <button class="icon-button" (click)="onToggleRightSidebar()" aria-label="Toggle right sidebar">
-        <i class="icon" [ngClass]="rightSidebarOpen ? 'icon-x' : 'icon-panel-right'"></i>
+        <i class="icon" [ngClass]="rightSidebarOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-gears'"></i>
       </button>
   
       <div class="social-buttons">
-        <button class="icon-button" aria-label="Download CV">
-          <i class="icon icon-download"></i>
+        <button class="icon-button" aria-label="Download CV" title="Download CV">
+          <i class="fa-solid fa-download"></i>
         </button>
         <button class="icon-button" aria-label="GitHub">
           <i class="icon icon-github"></i>

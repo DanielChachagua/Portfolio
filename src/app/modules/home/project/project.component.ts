@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ProjectService } from '../../../core/services/project/project.service';
 
 interface Project {
   title: string
@@ -17,6 +18,15 @@ interface Project {
 })
 
 export class ProjectComponent {
+
+  constructor(private projectService: ProjectService) { }
+
+  ngOnInit() {
+    this.projectService.getAllProjects().subscribe((projects) => {
+      console.log("🚀 ~ ProjectComponent ~ this.projectService.getAllProjects ~ projects:", projects);
+    });
+  }
+
   projects: Project[] = [
     {
       title: "E-commerce Platform",

@@ -1,10 +1,23 @@
 .sidebar {
   width: 256px;
+  /* border-right: 1px solid var(--border); */
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sidebarClose{
+  width: 70px;
   border-right: 1px solid var(--border);
   background-color: var(--background);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.sidebar, .sidebarClose {
+  transition: width 0.3s ease;
 }
 
 .sidebar-right {
@@ -57,37 +70,12 @@
   gap: 4px;
 }
 
-.nav-item {
-  display: flex;
-  align-items: center;
-  padding: 6px 8px;
-  padding-left: 24px;
-  background: transparent;
-  border: none;
-  border-radius: 4px;
-  color: var(--foreground);
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
-  text-align: left;
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--accent);
-  }
-
-  &.active {
-    background-color: var(--primary);
-    color: var(--primary-foreground);
-  }
-
-  .icon {
-    margin-right: 8px;
-    width: 14px;
-    height: 14px;
-  }
+.active {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
 }
 
-.icon-chevron-down::before { content: '▼'; }
+.icon-chevron-left::before { content: '▼'; }
 .icon-chevron-right::before { content: '▶'; }
 .icon-home::before { content: '⌂'; }
 .icon-user::before { content: '👤'; }
@@ -95,3 +83,7 @@
 .icon-mail::before { content: '✉'; }
 .icon-file::before { content: '📄'; }
 .icon-info::before { content: 'ℹ'; }
+
+mat-icon {
+  font-size: 32px;
+}

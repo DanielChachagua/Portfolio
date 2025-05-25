@@ -1,8 +1,0 @@
-<div class="w-auto h-auto m-6 border-solid border-2 border-gray-700 p-6">
-    <p>{{board.name}}</p>
-    <p>{{board.description}}</p>
-    <p>{{board.created}}</p>
-    <button (click)="toggleFavorite(board.id)">{{board.favorite}}</button>
-    <button [routerLink]="['/dashboard', board.id]">Ir al board</button>
-
-</div>

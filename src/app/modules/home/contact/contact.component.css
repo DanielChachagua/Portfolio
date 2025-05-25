@@ -1,6 +1,6 @@
 .contact-container {
   padding: 24px;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -21,12 +21,19 @@
 
 .contact-grid {
   display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+  
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* display: grid;
   grid-template-columns: 1fr;
   gap: 24px;
   
   @media (min-width: 768px) {
     grid-template-columns: 1fr 1fr;
-  }
+  } */
 }
 
 .contact-form-card, .info-card {
@@ -190,6 +197,11 @@
 
 .hours-time {
   color: var(--muted-foreground);
+}
+
+.contact-form-card, .contact-info {
+  display: flex;
+  flex: 1;
 }
 
 .icon-send::before { content: '↗'; }

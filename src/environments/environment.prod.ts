@@ -1,7 +1,7 @@
-const apiUrl = 'http://localhost:5077';
+const apiUrl = 'http://localhost:4000';
 
 export const environment = {
     production: true,
-    apiUrl: `${apiUrl}/api/`,
+    apiUrl: `${apiUrl}/`,
     serverUrl: `${apiUrl}`
   };

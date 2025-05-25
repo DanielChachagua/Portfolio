@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './initial.component.css'
 })
 export class InitialComponent {
-  skills = ["React", "Angular", "TypeScript", "Node.js", "Tailwind CSS"]
+  skills = ["Python", "Angular", "TypeScript", "Go", "Tailwind CSS", "C#"]
 }

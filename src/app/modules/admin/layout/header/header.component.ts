@@ -4,22 +4,23 @@ import { UserService } from '../../../../core/services/user/user.service';
 import { Router, RouterModule } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { UserToken } from '../../../../core/models/user/userToken';
+import { ThemeToggleComponent } from '../../../home/layout/header/theme-toggle/theme-toggle.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, ThemeToggleComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  user$: Observable<UserToken>;
+  // user$: Observable<UserToken>;
 
   constructor(
     private userService: UserService,
     private router: Router
   ){
-    this.user$ = this.userService.getUserSubject();
+    // this.user$ = this.userService.getUserSubject();
   }
 
   logout(){
@@ -52,16 +53,16 @@ export class HeaderComponent {
     }
   }
 
-  getInitials(){
-    return this.user$.pipe(
-      map(user => {
-        if (user) {
-          const first = user.firstName?.charAt(0) ?? '';
-          const last = user.lastName?.charAt(0) ?? '';
-          return first + last;
-        }
-        return '';
-      })
-    );
-  }
+  // getInitials(){
+  //   return this.user$.pipe(
+  //     map(user => {
+  //       if (user) {
+  //         const first = user.firstName?.charAt(0) ?? '';
+  //         const last = user.lastName?.charAt(0) ?? '';
+  //         return first + last;
+  //       }
+  //       return '';
+  //     })
+  //   );
+  // }
 }

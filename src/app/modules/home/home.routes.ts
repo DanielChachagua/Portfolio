@@ -10,23 +10,10 @@ export const HOME_ROUTES: Routes = [
     component: HomeComponent,
     children:[
       {
-        path: 'home',
+        path: '',
         loadChildren: () =>
-          import('./initial/initial.routes').then((m) => m.INITIAL_ROUTES),
+          import('./content/content.routes').then((m) => m.CONTENT_ROUTES),
       },
-      {
-        path: 'login',
-        loadChildren: () =>
-          import('./login/login.routes').then((m) => m.LOGIN_ROUTES),
-        canMatch: [loginGuard]
-      },
-      {
-        path: 'register',
-        loadChildren: () =>
-          import('./register/register.routes').then((m) => m.REGISTER_ROUTES),
-        canMatch: [loginGuard]
-      },
-
     ]
   }
 ];
