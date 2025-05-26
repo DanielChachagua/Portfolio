@@ -14,6 +14,16 @@
             <div>
                 <input type="text" formControlName="link" placeholder="Link" class="h-10 w-full  border-solid border-2 border-gray-200 rounded-xl p-3"/>
             </div>
+            <hr>
+            <div>
+                <div class="flex justify-between items-center">
+                    <h3>Skills</h3>
+                    <button type="button" (click)="addSkillPopup()"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div *ngFor="let skill of skills" class="flex items-center gap-2">
+                    <input type="checkbox"/> <label class="text-gray-500">{{skill.name}}</label>
+                </div>
+            </div>
             <button type="submit" class="bg-blue-800 h-10 text-white font-bold rounded-l">Crear</button>
         </form>
     </div>

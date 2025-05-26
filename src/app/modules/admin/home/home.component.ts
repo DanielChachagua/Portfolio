@@ -6,17 +6,54 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateComponent } from './create/create/create.component';
 import { UpdateComponent } from './update/update/update.component';
+import { SkillComponent } from './skill/skill.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SkillComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
 
   projects: Project[] = [
+    {
+      id: "a12kuj3hiu12u8i123iu",
+      title: "super project",
+      description: "this is a super project",
+      link: "www.superproject.com",
+      urlImage: "www.superproject.com/image.png",
+      createdAt: new Date(Date.now()),
+      updatedAt: new Date(Date.now())
+    },
+    {
+      id: "a12kuj3hiu12u8i123iu",
+      title: "super project",
+      description: "this is a super project",
+      link: "www.superproject.com",
+      urlImage: "www.superproject.com/image.png",
+      createdAt: new Date(Date.now()),
+      updatedAt: new Date(Date.now())
+    },
+    {
+      id: "a12kuj3hiu12u8i123iu",
+      title: "super project",
+      description: "this is a super project",
+      link: "www.superproject.com",
+      urlImage: "www.superproject.com/image.png",
+      createdAt: new Date(Date.now()),
+      updatedAt: new Date(Date.now())
+    },
+    {
+      id: "a12kuj3hiu12u8i123iu",
+      title: "super project",
+      description: "this is a super project",
+      link: "www.superproject.com",
+      urlImage: "www.superproject.com/image.png",
+      createdAt: new Date(Date.now()),
+      updatedAt: new Date(Date.now())
+    },
     {
       id: "a12kuj3hiu12u8i123iu",
       title: "super project",
