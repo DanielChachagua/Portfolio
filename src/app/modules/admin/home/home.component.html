@@ -8,21 +8,25 @@
     <app-skill></app-skill>
 
     <div class="projects-grid">
-      <div class="project-card" *ngFor="let project of projects">
+      <div class="project-card" *ngFor="let project of projects | async">
         <div class="card-header">
           <h2 class="card-title">{{ project.title }}</h2>
           <p class="card-description">{{ project.description }}</p>
         </div>
 
-        <div class="card-content">
-          <div class="tags">
-            <span class="tag">cash</span>
+        <div class="card-content flex flex-row">
+          <div class="tags" *ngFor="let skill of project.skills">
+            <span class="tag">{{skill.name}}</span>
           </div>
+        </div>
+
+        <div class="w-full h-60">
+          <img [src]="project.url_image" alt="Project Image" class="w-full h-full object-cover">
         </div>
 
         <div class="card-footer">
           <a [href]="" class="button button-outline" target="_blank">
-            <i class="icon icon-github"></i> Code
+            <i class="icon icon-github"></i> 
           </a>
           <a [href]="" class="button button-primary" target="_blank">
             <i class="icon icon-external-link"></i> Demo

@@ -11,16 +11,42 @@
             <div>
                 <input type="text" formControlName="description" placeholder="Descripción" class="h-10 w-full  border-solid border-2 border-gray-200 rounded-xl p-3"/>
             </div>
+             <div>
+                <label>
+                    <input type="checkbox" formControlName="favorite"/>
+                    Favorito
+                </label>
+            </div>
             <div>
                 <input type="text" formControlName="link" placeholder="Link" class="h-10 w-full  border-solid border-2 border-gray-200 rounded-xl p-3"/>
             </div>
+             <div>
+                <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+            </div>
+            <hr>
             <div>
                 <div class="flex justify-between items-center">
                     <h3>Skills</h3>
                     <button type="button" (click)="addSkillPopup()"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <div *ngFor="let skill of skills" class="flex items-center gap-2">
-                    <input type="checkbox"/> <label class="text-gray-500">{{skill.name}}</label>
+                <!-- <div *ngFor="let skill of skills | async" class="flex items-center gap-2">
+                    <input type="checkbox" /> <label class="text-gray-500">{{skill.name}}</label>
+                </div> -->
+                <!-- <div *ngFor="let skill of skills | async; let i = index" class="flex items-center gap-2">
+                    <input type="checkbox" [value]="skill.id" (change)="onSkillCheckboxChange($event, skill.id)"
+                        [checked]="isSkillSelected(skill.id)" />
+                    <label class="text-gray-500">{{ skill.name }}</label>
+                </div> -->
+                <div formArrayName="listId">
+                    <div *ngFor="let skill of skills | async">
+                        <input
+                        type="checkbox"
+                        [value]="skill.id"
+                        (change)="onSkillCheckboxChange($event, skill.id)"
+                        [checked]="isSkillSelected(skill.id)"
+                        />
+                        <label>{{ skill.name }}</label>
+                    </div>
                 </div>
             </div>
             <button type="submit" class="bg-blue-800 h-10 text-white font-bold rounded-l">Crear</button>

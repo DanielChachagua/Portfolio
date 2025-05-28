@@ -10,15 +10,21 @@ import { CommonModule } from "@angular/common"
 })
 
 export class ThemeToggleComponent {
-  isDarkTheme = false
 
-  constructor(private themeService: ThemeService) {
-    this.themeService.isDarkTheme$.subscribe((isDark) => {
-      this.isDarkTheme = isDark
-    })
-  }
+  constructor(public themeService: ThemeService) {}
 
   toggleTheme() {
     this.themeService.toggleTheme()
   }
+  // isDarkTheme = false
+
+  // constructor(private themeService: ThemeService) {
+  //   this.themeService.isDarkTheme$.subscribe((isDark) => {
+  //     this.isDarkTheme = isDark
+  //   })
+  // }
+
+  // toggleTheme() {
+  //   this.themeService.toggleTheme()
+  // }
 }

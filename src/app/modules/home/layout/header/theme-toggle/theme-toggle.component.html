@@ -4,7 +4,7 @@
 
 <!-- From Uiverse.io by Galahhad --> 
 <label class="switch">
-  <input id="input" type="checkbox" [checked]="isDarkTheme ? 'darkTheme' : ''"  (click)="toggleTheme()"/>
+  <input id="input" type="checkbox" [checked]="themeService.isDark  ? 'darkTheme' : ''"  (click)="toggleTheme()"/>
   <div class="slider round">
     <div class="sun-moon">
       <svg id="moon-dot-1" class="moon-dot" viewBox="0 0 100 100">

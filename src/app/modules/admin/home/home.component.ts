@@ -17,123 +17,27 @@ import { SkillComponent } from './skill/skill.component';
 })
 export class HomeComponent {
 
-  projects: Project[] = [
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-    {
-      id: "a12kuj3hiu12u8i123iu",
-      title: "super project",
-      description: "this is a super project",
-      link: "www.superproject.com",
-      urlImage: "www.superproject.com/image.png",
-      createdAt: new Date(Date.now()),
-      updatedAt: new Date(Date.now())
-    },
-  ]
+  projects: Observable<Project[]>;
 
   constructor(private dialog: MatDialog, private projectService: ProjectService) {
-    // this.projectService.getAllProjects().subscribe({
-    //   next: (projects) => {
-    //     console.log("🚀 ~ HomeComponent ~ this.projectService.getAllProjects ~ projects:", projects)
-    //     this.projects = projects.body;
-    //   },
-    //   error: (error) => {
-    //     console.error('Error fetching projects:', error);
-    //   }
-    // });
+    this.projects = this.projectService.projects$;
   }
 
-  // projects!: Project[];
-
-  // constructor(private projectService: ProjectService) {
-  //   this.projectService.getAllProjects().subscribe({
-  //     next: (projects) => {
-  //       console.log("🚀 ~ HomeComponent ~ this.projectService.getAllProjects ~ projects:", projects)
-  //       this.projects = projects.body;
-  //     },
-  //     error: (error) => {
-  //       console.error('Error fetching projects:', error);
-  //     }
-  //   });
-  // }
-
-  // ngOnInit(): void {
-  // }
-
-  // Other component methods and properties can go here
+  ngOnInit(): void {
+    this.projectService.getAllProjects().subscribe(); 
+  }
 
   createProject() {
     this.dialog.open(CreateComponent, {
       width: '500px',
-      height: '500px',
+      height: '600px',
     });
   }
 
   updateProject(project: Project) {
     this.dialog.open(UpdateComponent, {
       width: '500px',
-      height: '500px',
+      height: '600px',
       data: { project: project }
     });
   }
@@ -146,7 +50,7 @@ export class HomeComponent {
     this.projectService.deleteProject(id).subscribe({
       next: (response) => {
         console.log("🚀 ~ HomeComponent ~ deleteProject ~ response:", response)
-        this.projects = this.projects.filter(p => p.id !== id);
+        this.projectService.getAllProjects().subscribe();
       },
       error: (error) => {
         console.error('Error deleting project:', error);

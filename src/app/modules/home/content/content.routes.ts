@@ -7,7 +7,7 @@ export const CONTENT_ROUTES: Routes = [
     component: InitialComponent,
   },
       {
-        path: 'home',
+        path: '',
         loadChildren: () =>
           import('../initial/initial.routes').then((m) => m.INITIAL_ROUTES),
       },

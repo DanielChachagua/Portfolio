@@ -24,9 +24,9 @@ export class FooterComponent {
     this.updateTime()
     this.timeSubscription = interval(1000).subscribe(() => this.updateTime())
 
-    this.themeSubscription = this.themeService.isDarkTheme$.subscribe((isDark) => {
-      this.currentTheme = isDark ? "dark" : "light"
-    })
+    // this.themeSubscription = this.themeService.isDarkTheme$.subscribe((isDark) => {
+    //   this.currentTheme = isDark ? "dark" : "light"
+    // })
   }
 
   ngOnDestroy() {

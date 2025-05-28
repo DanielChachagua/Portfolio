@@ -5,43 +5,37 @@ import { BehaviorSubject } from "rxjs"
   providedIn: "root",
 })
 export class ThemeService {
-  private isDarkThemeSubject = new BehaviorSubject<boolean>(this.getInitialTheme())
-  isDarkTheme$ = this.isDarkThemeSubject.asObservable()
+  private _isDark = false
 
-  constructor() {
-    this.watchSystemTheme()
+  get isDark(): boolean {
+    return this._isDark
   }
 
-  private getInitialTheme(): boolean {
+  constructor() { }
+
+  initTheme(): void {
+    // Verificar si hay una preferencia guardada
     const savedTheme = localStorage.getItem("theme")
     if (savedTheme) {
-      return savedTheme === "dark"
-    }
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-  }
-
-  private watchSystemTheme() {
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
-      if (localStorage.getItem("theme") === "system") {
-        this.isDarkThemeSubject.next(e.matches)
-      }
-    })
-  }
-
-  setTheme(theme: "light" | "dark" | "system") {
-    localStorage.setItem("theme", theme)
-
-    if (theme === "system") {
-      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
-      this.isDarkThemeSubject.next(isDark)
+      this._isDark = savedTheme === "dark"
     } else {
-      this.isDarkThemeSubject.next(theme === "dark")
+      // Usar preferencia del sistema
+      this._isDark = window.matchMedia("(prefers-color-scheme: dark)").matches
     }
+    this.applyTheme()
   }
 
-  toggleTheme() {
-    const currentTheme = this.isDarkThemeSubject.value
-    this.isDarkThemeSubject.next(!currentTheme)
-    localStorage.setItem("theme", !currentTheme ? "dark" : "light")
+  toggleTheme(): void {
+    this._isDark = !this._isDark
+    this.applyTheme()
+    localStorage.setItem("theme", this._isDark ? "dark" : "light")
+  }
+
+  private applyTheme(): void {
+    if (this._isDark) {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
   }
 }

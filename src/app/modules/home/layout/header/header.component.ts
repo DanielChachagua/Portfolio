@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { UserService } from '../../../../core/services/user/user.service';
 import { CommonModule } from '@angular/common';
 import { UserToken } from '../../../../core/models/user/userToken';
 import { Router, RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
+import { ThemeService } from '../../../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -14,21 +15,28 @@ import { ThemeToggleComponent } from './theme-toggle/theme-toggle.component';
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  isMenuOpen = false
 
-  @Input() activeSection = "home"
-  @Input() rightSidebarOpen = true
+  constructor(public themeService: ThemeService) {}
 
-  @Output() sectionChange = new EventEmitter<string>()
-  @Output() toggleRightSidebar = new EventEmitter<void>()
-
-  sections = ["home", "about", "projects", "contact"]
-
-  onSectionChange(section: string) {
-    this.sectionChange.emit(section)
+  ngOnInit() {
+    this.themeService.initTheme()
   }
 
-  onToggleRightSidebar() {
-    this.toggleRightSidebar.emit()
+  toggleTheme() {
+    this.themeService.toggleTheme()
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen
+  }
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    this.isMenuOpen = false
   }
 
 }

@@ -1,125 +1,47 @@
-<div class="about-container">
-  <div class="section-header">
-    <h1 class="title">About Me</h1>
-    <p class="subtitle">Learn more about my background, skills, and experience.</p>
-  </div>
-
-  <div class="tabs">
-    <div class="tab-list">
-      <button 
-        class="tab-button" 
-        [class.active]="activeTab === 'profile'"
-        (click)="setActiveTab('profile')"
-      >
-        <i class="icon icon-user"></i> Profile
-      </button>
-      
-      <button 
-        class="tab-button" 
-        [class.active]="activeTab === 'skills'"
-        (click)="setActiveTab('skills')"
-      >
-        <i class="icon icon-code"></i> Skills
-      </button>
-      
-      <button 
-        class="tab-button" 
-        [class.active]="activeTab === 'experience'"
-        (click)="setActiveTab('experience')"
-      >
-        <i class="icon icon-briefcase"></i> Experience
-      </button>
-      
-      <button 
-        class="tab-button" 
-        [class.active]="activeTab === 'education'"
-        (click)="setActiveTab('education')"
-      >
-        <i class="icon icon-graduation"></i> Education
-      </button>
-    </div>
-
-    <div class="tab-content">
-      <!-- Profile Tab -->
-      <div class="tab-panel" *ngIf="activeTab === 'profile'">
-        <div class="card">
-          <h2 class="card-title">Profile</h2>
-          <div class="card-content">
-            <p>
-              I'm a passionate full-stack developer with over 5 years of experience building web applications. I
-              specialize in creating responsive, accessible, and performant user interfaces using modern technologies
-              like Angular, React, and TypeScript.
-            </p>
-            <p>
-              My approach to development focuses on creating clean, maintainable code that delivers exceptional user
-              experiences. I'm constantly learning and exploring new technologies to stay at the forefront of web
-              development.
-            </p>
-            <p>
-              When I'm not coding, you can find me hiking, reading tech blogs, or contributing to open-source
-              projects. I'm always open to new opportunities and collaborations.
-            </p>
-          </div>
-        </div>
+<section id="about" class="py-20! bg-gray-50 dark:bg-gray-800 h-auto">
+    <div class="max-w-6xl mx-auto! px-4! sm:px-6! lg:px-8!">
+      <div class="text-center mb-16!">
+        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4!">Sobre mí</h2>
+        <div class="w-20 h-1 bg-gradient-to-r! from-orange-500 to-[#8b9a46!important] mx-auto!"></div>
       </div>
 
-      <!-- Skills Tab -->
-      <div class="tab-panel" *ngIf="activeTab === 'skills'">
-        <div class="card">
-          <h2 class="card-title">Skills</h2>
-          <div class="card-content">
-            <div class="skills-list">
-              <div class="skill-item" *ngFor="let skill of skills">
-                <div class="skill-header">
-                  <span class="skill-name">{{ skill.name }}</span>
-                  <span class="skill-level">{{ skill.level }}%</span>
-                </div>
-                <div class="skill-bar">
-                  <div class="skill-progress" [style.width.%]="skill.level"></div>
-                </div>
-              </div>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="w-60 h-60 sm:w-80 sm:h-80 mx-auto! bg-gradient-to-br! from-orange-500/20! to-[#8b9a46!important]/[.2] rounded-full flex items-center justify-center border-4 border-orange-500/30! dark:border-orange-400/30!">
+            <div class="w-60 h-60 bg-gradient-to-br! from-moss-green/30! to-orange-500/30! rounded-full flex items-center justify-center">
+              <span class="text-6xl">💻</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Experience Tab -->
-      <div class="tab-panel" *ngIf="activeTab === 'experience'">
-        <div class="card">
-          <h2 class="card-title">Experience</h2>
-          <div class="card-content">
-            <div class="timeline">
-              <div class="timeline-item" *ngFor="let exp of experiences">
-                <h3 class="timeline-title">{{ exp.title }}</h3>
-                <div class="timeline-meta">
-                  <span class="timeline-company">{{ exp.company }}</span>
-                  <span class="timeline-period">{{ exp.period }}</span>
-                </div>
-                <p class="timeline-description">{{ exp.description }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Education Tab -->
-      <div class="tab-panel" *ngIf="activeTab === 'education'">
-        <div class="card">
-          <h2 class="card-title">Education</h2>
-          <div class="card-content">
-            <div class="timeline">
-              <div class="timeline-item" *ngFor="let edu of education">
-                <h3 class="timeline-title">{{ edu.degree }}</h3>
-                <div class="timeline-meta">
-                  <span class="timeline-company">{{ edu.institution }}</span>
-                  <span class="timeline-period">{{ edu.period }}</span>
-                </div>
-                <p class="timeline-description">{{ edu.description }}</p>
-              </div>
-            </div>
+        <div>
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6!">
+            Desarrollador apasionado por la tecnología
+          </h3>
+          <p class="text-gray-600 dark:text-gray-300 mb-6! leading-relaxed">
+            Con más de 3 años de experiencia en desarrollo web, me especializo en crear aplicaciones modernas y
+            escalables. Mi enfoque se centra en escribir código limpio, mantener las mejores prácticas y estar
+            siempre actualizado con las últimas tecnologías.
+          </p>
+          <p class="text-gray-600 dark:text-gray-300 mb-6! leading-relaxed">
+            Me apasiona resolver problemas complejos y transformar ideas en soluciones digitales que generen impacto
+            real en los usuarios.
+          </p>
+          <div class="flex px-4! justify-between">
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 text-2xl transition-colors">
+              🐙
+            </a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 text-2xl transition-colors">
+              💼
+            </a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 text-2xl transition-colors">
+              ✉️
+            </a>
+            <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-orange-500 dark:hover:text-orange-400 text-2xl transition-colors">
+              ✉️
+            </a>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>

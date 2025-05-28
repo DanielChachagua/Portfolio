@@ -9,5 +9,14 @@ import { Component } from '@angular/core';
   styleUrl: './initial.component.css'
 })
 export class InitialComponent {
-  skills = ["Python", "Angular", "TypeScript", "Go", "Tailwind CSS", "C#"]
+  title = "angular-portfolio"
+  isMenuOpen = false
+
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" })
+    }
+    this.isMenuOpen = false
+  }
 }

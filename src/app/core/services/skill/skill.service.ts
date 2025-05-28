@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environment';
 import { BehaviorSubject, catchError, of, tap } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Skill } from '../../models/skill/skill';
+import { Skill, SkillCreate } from '../../models/skill/skill';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SkillService {
-   url: string = `${environment.apiUrl}skill`;
+  url: string = `${environment.apiUrl}skill`;
 
   private skillSubject = new BehaviorSubject<Skill[]>([]);
   skills$ = this.skillSubject.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
-  createSkill(skill: { name: string }) {
+  createSkill(skill: FormData) {
     return this.httpClient.post(`${this.url}/create`, skill);
   }
 
@@ -29,7 +29,7 @@ export class SkillService {
     );
   }
 
-  updateSkill(id: string, skill: { name: string }) {
+  updateSkill(id: string, skill: FormData) {
     return this.httpClient.put(`${this.url}/update/${id}`, skill);
   }
 

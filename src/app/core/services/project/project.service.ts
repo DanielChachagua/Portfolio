@@ -11,11 +11,11 @@ export class ProjectService {
   url: string = `${environment.apiUrl}project`;
 
   private projectSubject = new BehaviorSubject<ProjectResponse[]>([]);
-  project$ = this.projectSubject.asObservable();
+  public projects$ = this.projectSubject.asObservable();
 
   constructor(private httpClient: HttpClient) { }
 
-  createProject(project: ProjectCreate) {
+  createProject(project: FormData) {
     return this.httpClient.post(`${this.url}/create`, project);
   }
 
@@ -31,7 +31,7 @@ export class ProjectService {
  
   getAllProjects() {
     return this.httpClient.get<ProjectResponse[]>(`${this.url}/getAll`).pipe(
-      tap((boards: any) => this.projectSubject.next(boards.body)),
+      tap((projects: any) => this.projectSubject.next(projects.body)),
       catchError((error) => {
         console.error('Error al obtener los projectos:', error);
         return of([]);
@@ -49,7 +49,7 @@ export class ProjectService {
     );
   }
 
-  updateProject(id: string, project: ProjectUpdate) {
+  updateProject(id: string, project: FormData) {
     return this.httpClient.put(`${this.url}/update/${id}`, project);
   }
 

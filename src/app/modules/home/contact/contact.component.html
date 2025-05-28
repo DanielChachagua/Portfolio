@@ -1,124 +1,70 @@
-<div class="contact-container">
-  <div class="section-header">
-    <h1 class="title">Contact Me</h1>
-    <p class="subtitle">Get in touch for collaborations, job opportunities, or just to say hello.</p>
-  </div>
-
-  <div class="contact-grid">
-    <div class="contact-form-card">
-      <div class="card-header">
-        <h2 class="card-title">Send a Message</h2>
-        <p class="card-description">Fill out the form below and I'll get back to you as soon as possible.</p>
-      </div>
-      
-      <div class="card-content">
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="name" class="form-label">Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                formControlName="name" 
-                class="form-input" 
-                [class.input-error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
-                placeholder="Your name"
-              >
-              <div class="error-message" *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
-                Name is required
-              </div>
-            </div>
-            
-            <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                formControlName="email" 
-                class="form-input"
-                [class.input-error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
-                placeholder="Your email"
-              >
-              <div class="error-message" *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
-                Valid email is required
-              </div>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="subject" class="form-label">Subject</label>
-            <input 
-              type="text" 
-              id="subject" 
-              formControlName="subject" 
-              class="form-input"
-              [class.input-error]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched"
-              placeholder="Message subject"
-            >
-            <div class="error-message" *ngIf="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
-              Subject is required
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="message" class="form-label">Message</label>
-            <textarea 
-              id="message" 
-              formControlName="message" 
-              class="form-textarea"
-              [class.input-error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"
-              placeholder="Your message"
-              rows="5"
-            ></textarea>
-            <div class="error-message" *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched">
-              Message is required
-            </div>
-          </div>
-          
-          <button type="submit" class="submit-button">
-            <i class="icon icon-send"></i> Send Message
-          </button>
-        </form>
-      </div>
+<section id="contact" class="py-20! dark:bg-gray-900">
+  <div class="max-w-6xl mx-auto! px-4! sm:px-6! lg:px-8!">
+    <div class="text-center mb-16!">
+      <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4!">Contacto</h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-[#8b9a46] mx-auto!"></div>
     </div>
 
-    <div class="contact-info">
-      <div class="info-card">
-        <div class="card-header">
-          <h2 class="card-title">Contact Information</h2>
-          <p class="card-description">Here's how you can reach me directly.</p>
-        </div>
-        
-        <div class="card-content">
-          <div class="contact-items">
-            <div class="contact-item" *ngFor="let item of contactInfo">
-              <div class="contact-icon">
-                <i class="icon" [ngClass]="item.icon"></i>
-              </div>
-              <div class="contact-details">
-                <h3 class="contact-title">{{ item.title }}</h3>
-                <p class="contact-value">{{ item.value }}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="max-w-2xl mx-auto! text-center">
+      <p class="text-xl text-gray-600 dark:text-gray-300 mb-8!">
+        ¿Tienes un proyecto en mente? Me encantaría escuchar tus ideas y ayudarte a convertirlas en realidad.
+      </p>
 
-      <!-- <div class="info-card">
-        <div class="card-header">
-          <h2 class="card-title">Office Hours</h2>
-          <p class="card-description">When I'm typically available for meetings.</p>
+      <form class="max-w-xl mx-auto! grid gap-6 text-left" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="name" class="block mb-2! text-sm font-bold">Nombre</label>
+          <input type="text" id="name" formControlName="name"
+            class="w-full h-10 p-4! rounded-lg border border-[#8b9a46] bg-[#8b9a46]/30 focus:outline-none focus:border-[#8b9a46] dark:focus:border-orange-500 focus:border-3 dark:bg-[#1E293B] dark:text-white dark:border dark:border-gray-600"
+            placeholder="Tu nombre" />
+          <!-- <input type="text" id="name" formControlName="name"
+            class="w-full h-10 p-4! rounded-lg bg-[#1E293B] text-white border border-gray-600 focus:outline-none focus:border-orange-400 focus:border-3"
+            placeholder="Tu nombre" /> -->
         </div>
-        
-        <div class="card-content">
-          <div class="hours-list">
-            <div class="hours-item" *ngFor="let item of officeHours">
-              <span class="hours-day">{{ item.day }}</span>
-              <span class="hours-time">{{ item.hours }}</span>
-            </div>
-          </div>
+
+        <div>
+          <label for="email" class="block mb-2! text-sm font-bold">Email</label>
+          <input type="email" id="email" formControlName="email"
+            class="w-full h-10 p-4! rounded-lg border border-[#8b9a46] bg-[#8b9a46]/30 focus:outline-none focus:border-[#8b9a46] dark:focus:border-orange-500 focus:border-3 dark:bg-[#1E293B] dark:text-white dark:border dark:border-gray-600"
+            placeholder="tucorreo@ejemplo.com" />
         </div>
+
+        <div>
+          <label for="phone" class="block mb-2! text-sm font-bold">Teléfono</label>
+          <input type="tel" id="phone" formControlName="phone"
+            class="w-full h-10 p-4! rounded-lg border border-[#8b9a46] bg-[#8b9a46]/30 focus:outline-none focus:border-[#8b9a46] dark:focus:border-orange-500 focus:border-3 dark:bg-[#1E293B] dark:text-white dark:border dark:border-gray-600"
+            placeholder="+54 11 1234 5678" />
+        </div>
+
+        <div>
+          <label for="issue" class="block mb-2! text-sm font-bold">Asunto</label>
+          <input type="text" id="issue" formControlName="issue"
+            class="w-full h-10 p-4! rounded-lg border border-[#8b9a46] bg-[#8b9a46]/30 focus:outline-none focus:border-[#8b9a46] dark:focus:border-orange-500 focus:border-3 dark:bg-[#1E293B] dark:text-white dark:border dark:border-gray-600"
+            placeholder="Contacto" />
+        </div>
+
+        <div>
+          <label for="body" class="block mb-2! text-sm font-bold">Mensaje</label>
+          <textarea id="body" formControlName="body" rows="5"
+            class="w-full p-4! rounded-lg border border-[#8b9a46] bg-[#8b9a46]/30 focus:outline-none focus:border-[#8b9a46] dark:focus:border-orange-500 focus:border-3 dark:bg-[#1E293B] dark:text-white dark:border dark:border-gray-600"
+            placeholder="Escribe tu mensaje aquí..."></textarea>
+        </div>
+
+        <button type="submit" [disabled]="contactForm.invalid"
+          class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8! py-3! rounded-md transition-all flex items-center justify-center">
+          <span class="mr-2!">✉️</span>
+          Enviar Email
+        </button>
+
+      </form>
+
+      <!-- <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button
+          class="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8! py-3! rounded-md transition-all flex items-center justify-center">
+          <span class="mr-2!">✉️</span>
+          Enviar Email
+        </button>
+
       </div> -->
     </div>
   </div>
-</div>
+</section>
