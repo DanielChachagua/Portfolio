@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { ProjectService } from '../../../core/services/project/project.service';
 import { Observable } from 'rxjs';
 import { ProjectResponse } from '../../../core/models/project/project';
+import { SkillService } from '../../../core/services/skill/skill.service';
+import { Skill } from '../../../core/models/skill/skill';
 
 interface Project {
   title: string
@@ -26,7 +28,7 @@ interface SkillCategory {
 export class ProjectComponent {
   isMenuOpen = false
 
-  projects: Project[] = [
+  projects2: Project[] = [
     {
       title: "E-commerce Platform",
       description: "Plataforma completa de comercio electrónico con Angular y Node.js",
@@ -65,9 +67,32 @@ export class ProjectComponent {
     },
   ]
 
-  skills: SkillCategory[] = [
+  skills2: SkillCategory[] = [
     { name: "Frontend", items: ["Angular", "React", "TypeScript", "Tailwind CSS", "Node.js", "MongoDB", "Stripe"] },
     { name: "Backend", items: ["Node.js", "Python", "PostgreSQL", "MongoDB"] },
     { name: "Tools", items: ["Git", "Docker", "AWS", "Figma"] },
   ]
+
+  projects: Observable<ProjectResponse[]>;
+  skills: Observable<Skill[]>
+
+  constructor(
+    private projectService: ProjectService,
+    private skillService: SkillService
+  ) {
+    this.projects = this.projectService.projects$;
+    this.skills = this.skillService.skills$
+  }
+
+  ngOnInit(): void {
+    this.projectService.getAllProjects().subscribe();
+    this.skillService.getAllSkills().subscribe();
+  }
+
+  ngAfterViewInit(): void {
+    
+  }
+
+
+
 }
