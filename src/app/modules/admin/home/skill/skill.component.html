@@ -1,25 +1,33 @@
-<div class="flex flex-col justify-center items-center gap-5 h-auto m-5">
+<div class="flex flex-col justify-center items-center gap-5 h-auto! m-5!">
   <!-- <div *ngFor="let skill of skills | async" class="w-auto p-4 h-8 rounded-full bg-gray-200 flex justify-center items-center gap-3">
     <span>{{ skill.name }}</span>
     <button (click)="deleteSkill(skill.id)" class="ml-2"><i class="fa-solid fa-trash"></i></button>
     <button (click)="udpateSkill(skill)" class="ml-2"><i class="fa-solid fa-pen"></i></button>
   </div> -->
-  <h3>Lenguajes</h3>
-   <div *ngFor="let skill of languajes" class="w-auto p-4 h-8 rounded-full bg-gray-200 flex justify-center items-center gap-3">
-    <span>{{ skill.name }}</span>
-    <button (click)="deleteSkill(skill.id)" class="ml-2"><i class="fa-solid fa-trash"></i></button>
-    <button (click)="udpateSkill(skill)" class="ml-2"><i class="fa-solid fa-pen"></i></button>
+  <h3>Front</h3>
+  <div class="flex flex-row justify-center items-center gap-4">
+    <div *ngFor="let skill of languajes" class="w-auto p-4! h-8! rounded-full bg-gray-200 flex justify-center items-center gap-3">
+      <span>{{ skill.name }}</span>
+      <button (click)="deleteSkill(skill.id)" class="ml-2!"><i class="fa-solid fa-trash"></i></button>
+      <button (click)="udpateSkill(skill)" class="ml-2!"><i class="fa-solid fa-pen"></i></button>
+    </div>
   </div>
-  <h3>Herramientas</h3>
-   <div *ngFor="let skill of tools" class="w-auto p-4 h-8 rounded-full bg-gray-200 flex justify-center items-center gap-3">
+  
+  <h3>Back</h3>
+  <div class="flex flex-row justify-center items-center gap-4">
+   <div *ngFor="let skill of tools" class="w-auto p-4! h-8! rounded-full bg-gray-200 flex justify-center items-center gap-3">
     <span>{{ skill.name }}</span>
-    <button (click)="deleteSkill(skill.id)" class="ml-2"><i class="fa-solid fa-trash"></i></button>
-    <button (click)="udpateSkill(skill)" class="ml-2"><i class="fa-solid fa-pen"></i></button>
+    <button (click)="deleteSkill(skill.id)" class="ml-2!"><i class="fa-solid fa-trash"></i></button>
+    <button (click)="udpateSkill(skill)" class="ml-2!"><i class="fa-solid fa-pen"></i></button>
+    </div>
   </div>
-  <h3>Habilidades</h3>
-   <div *ngFor="let skill of habilities" class="w-auto p-4 h-8 rounded-full bg-gray-200 flex justify-center items-center gap-3">
+
+  <h3>Tool</h3>
+  <div class="flex flex-row justify-center items-center gap-4">
+   <div *ngFor="let skill of habilities" class="w-auto! p-4 h-8! rounded-full bg-gray-200 flex justify-center items-center gap-3">
     <span>{{ skill.name }}</span>
-    <button (click)="deleteSkill(skill.id)" class="ml-2"><i class="fa-solid fa-trash"></i></button>
-    <button (click)="udpateSkill(skill)" class="ml-2"><i class="fa-solid fa-pen"></i></button>
+    <button (click)="deleteSkill(skill.id)" class="ml-2!"><i class="fa-solid fa-trash"></i></button>
+    <button (click)="udpateSkill(skill)" class="ml-2!"><i class="fa-solid fa-pen"></i></button>
+   </div>
   </div>
 </div>

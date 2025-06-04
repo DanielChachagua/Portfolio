@@ -8,10 +8,10 @@
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div>
         <div
-          class="w-60 h-60 sm:w-80 sm:h-80 mx-auto! bg-gradient-to-br! from-orange-500/20! to-[#8b9a46!important]/[.2] rounded-full flex items-center justify-center border-4 border-orange-500/30! dark:border-orange-400/30!">
+          class="w-70 h-70 sm:w-80 sm:h-80 mx-auto! bg-gradient-to-br! from-orange-500/20! to-[#8b9a46!important]/[.2] rounded-full flex items-center justify-center border-4 border-orange-500/30! dark:border-orange-400/30!">
           <div
-            class="w-60 h-60 bg-gradient-to-br! from-moss-green/30! to-orange-500/30! rounded-full flex items-center justify-center">
-            <span class="text-6xl">💻</span>
+            class="w-60 h-60 sm:w-70 sm:h-70 bg-gradient-to-br! from-moss-green/30! to-orange-500/30! rounded-full flex items-center justify-center">
+            <img *ngIf="user" src="{{user.url_image}}" alt="" class="w-full h-full object-cover rounded-full">
           </div>
         </div>
       </div>

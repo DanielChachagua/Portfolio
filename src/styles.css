@@ -167,6 +167,14 @@ html {
   -webkit-backdrop-filter: blur(12px);
 }
 
+.linkify-link {
+  color: #646f32 !important;
+  text-decoration: underline !important;
+}
+.dark .linkify-link {
+  color: #FFA500 !important;
+}
+
 
 /* 
 

@@ -2,6 +2,7 @@ export interface UserDTO{
     id: string;
     firstName: string;
     lastName: string;
+    username: string;
     email: string;
-    photoUrl: string;
+    url_image: string;
 }

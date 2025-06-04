@@ -33,9 +33,9 @@ export class SkillComponent {
 
   orderedSkills() {
     this.skills.subscribe((skills) => {
-      this.languajes = skills.filter(skill => skill.area === 'languaje');
-      this.tools = skills.filter(skill => skill.area === 'tool');
-      this.habilities = skills.filter(skill => skill.area === 'hability');
+      this.languajes = skills.filter(skill => skill.area === 'front');
+      this.tools = skills.filter(skill => skill.area === 'back');
+      this.habilities = skills.filter(skill => skill.area === 'tool');
     });
   }
   // ngOnInit(): void {

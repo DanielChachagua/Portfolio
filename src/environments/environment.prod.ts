@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:4000';
+const apiUrl = 'http://backdc.saltaget.com';
 
 export const environment = {
     production: true,

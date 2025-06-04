@@ -45,4 +45,8 @@ export class FooterComponent {
     const seconds = String(now.getSeconds()).padStart(2, "0")
     this.currentTime = `${hours}:${minutes}:${seconds}`
   }
+
+  currentYear() {
+    return new Date().getFullYear()
+  }
 }
