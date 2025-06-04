@@ -1,4 +1,4 @@
-const apiUrl = 'http://backdc.saltaget.com';
+const apiUrl = 'https://backdc.saltaget.com';
 
 export const environment = {
     production: true,
